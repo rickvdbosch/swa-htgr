@@ -1,6 +1,9 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
+    font-family: 'Comic Sans MS';
+    font-size: xx-large;
+    background-color: #e916d1;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
