@@ -1,0 +1,31 @@
+﻿@page "/fetchdata"
+@using HTGR.Web.Models
+@inject HttpClient Http
+
+<PageTitle>Speakers</PageTitle>
+
+<h1>Speakers</h1>
+
+@if (speakers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <ul>
+        @foreach (var speaker in speakers)
+        {
+            <li>@speaker?.value</li>
+        }
+    </ul>
+}
+
+@code {
+    private Speaker[]? speakers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var temp = await Http.GetFromJsonAsync<SpeakerObject>("/api/conference/speakers");
+        speakers = temp.collection.items.Select(i => i.data.FirstOrDefault()).ToArray();
+    }
+}
