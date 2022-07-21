@@ -8,7 +8,14 @@
 
 @if (speakers == null)
 {
-    <p><em>Loading...</em></p>
+    if (message != null)
+    {
+        <h2>@message</h2>
+    }
+    else
+    { 
+        <p><em>Loading...</em></p>
+    }
 }
 else
 {
@@ -22,10 +29,19 @@ else
 
 @code {
     private Speaker[]? speakers;
+    private string? message;
 
     protected override async Task OnInitializedAsync()
     {
-        var temp = await Http.GetFromJsonAsync<SpeakerObject>("/api/conference/speakers");
-        speakers = temp.collection.items.Select(i => i.data.FirstOrDefault()).ToArray();
+        message = null;
+        try
+        {
+            var temp = await Http.GetFromJsonAsync<SpeakerObject>("/api/conference/speakers");
+            speakers = temp.collection.items.Select(i => i.data.FirstOrDefault()).ToArray();
+        }
+        catch 
+        {
+            message = "Something went wrong trying to get our speakers. Please try again.";
+        }
     }
 }
