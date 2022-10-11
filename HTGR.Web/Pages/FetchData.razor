@@ -28,7 +28,7 @@ else
 }
 
 @code {
-    private VideoEntity[]? videos;
+    private List<VideoEntity>? videos;
     private string? message;
 
     protected override async Task OnInitializedAsync()
@@ -36,7 +36,7 @@ else
         message = null;
         try
         {
-            videos = await Http.GetFromJsonAsync<VideoEntity[]>("/api/videos/betatalks");
+            videos = await Http.GetFromJsonAsync<List<VideoEntity>>("/api/videos/betatalks");
         }
         catch 
         {
