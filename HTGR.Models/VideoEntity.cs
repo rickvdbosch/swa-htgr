@@ -1,10 +1,9 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 using Azure;
 using Azure.Data.Tables;
 
-namespace HTGR.Functions.Entities
+namespace HTGR.Models
 {
     public class VideoEntity : ITableEntity
     {

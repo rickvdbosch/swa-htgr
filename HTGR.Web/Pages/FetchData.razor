@@ -1,12 +1,12 @@
 ﻿@page "/fetchdata"
-@using HTGR.Web.Models
+@using HTGR.Models
 @inject HttpClient Http
 
-<PageTitle>Speakers</PageTitle>
+<PageTitle>Videos</PageTitle>
 
-<h1>Speakers</h1>
+<h1>Videos</h1>
 
-@if (speakers == null)
+@if (videos == null)
 {
     if (message != null)
     {
@@ -20,15 +20,15 @@
 else
 {
     <ul>
-        @foreach (var speaker in speakers)
+        @foreach (var video in videos)
         {
-            <li>@speaker?.value</li>
+            <li>@video?.Title<br />@video?.Description</li>
         }
     </ul>
 }
 
 @code {
-    private Speaker[]? speakers;
+    private VideoEntity[]? videos;
     private string? message;
 
     protected override async Task OnInitializedAsync()
@@ -36,12 +36,11 @@ else
         message = null;
         try
         {
-            var temp = await Http.GetFromJsonAsync<SpeakerObject>("/api/conference/speakers");
-            speakers = temp.collection.items.Select(i => i.data.FirstOrDefault()).ToArray();
+            videos = await Http.GetFromJsonAsync<VideoEntity[]>("/api/videos");
         }
         catch 
         {
-            message = "Something went wrong trying to get our speakers. Please try again.";
+            message = "Something went wrong trying to get our videos. Please try again.";
         }
     }
 }

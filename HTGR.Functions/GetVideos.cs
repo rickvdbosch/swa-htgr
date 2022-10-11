@@ -1,6 +1,6 @@
 using Azure.Data.Tables;
 
-using HTGR.Functions.Entities;
+using HTGR.Models;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
