@@ -36,7 +36,7 @@ else
         message = null;
         try
         {
-            videos = await Http.GetFromJsonAsync<VideoEntity[]>("/api/videos");
+            videos = await Http.GetFromJsonAsync<VideoEntity[]>("/api/videos/betatalks");
         }
         catch 
         {
