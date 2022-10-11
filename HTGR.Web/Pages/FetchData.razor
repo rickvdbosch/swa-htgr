@@ -13,7 +13,7 @@
         <h2>@message</h2>
     }
     else
-    { 
+    {
         <p><em>Loading...</em></p>
     }
 }
@@ -28,7 +28,7 @@ else
 }
 
 @code {
-    private List<VideoEntity>? videos;
+    private VideoModel[]? videos;
     private string? message;
 
     protected override async Task OnInitializedAsync()
@@ -36,7 +36,7 @@ else
         message = null;
         try
         {
-            videos = await Http.GetFromJsonAsync<List<VideoEntity>>("/api/videos/betatalks");
+            videos = await Http.GetFromJsonAsync<VideoModel[]>("/api/videos/betatalks");
         }
         catch 
         {
