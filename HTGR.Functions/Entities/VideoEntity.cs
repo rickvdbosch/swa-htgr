@@ -3,7 +3,7 @@
 using Azure;
 using Azure.Data.Tables;
 
-namespace HTGR.Models
+namespace HTGR.Functions.Entities
 {
     public class VideoEntity : ITableEntity
     {
