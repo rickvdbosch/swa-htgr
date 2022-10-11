@@ -1,7 +1,12 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: xx-large;
+}
+
+main {
+    background-color: hotpink;
 }
 
 h1:focus {
