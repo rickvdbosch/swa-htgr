@@ -31,8 +31,8 @@ else
         @foreach (var session in sessions)
         {
             <tr>
-                <td>@session.Day</td>
-                <td>@session.Session</td>
+                <td>@session.Day.Replace('_', ' ')</td>
+                <td>@session.Session.Replace('_', ' ')</td>
                 <td>@session.Start</td>
                 <td>@session.End</td>
                 <td>@session.Room</td>

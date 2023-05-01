@@ -16,8 +16,14 @@
 }
 else
 {
+    <h1>
+        @session.Session <small>by</small>
+    </h1>
     <div>
-        @session.Session by @((MarkupString)session.Speaker)
+        @((MarkupString)session.Speaker)
+    </div>
+    <div>
+        @session.Description
     </div>
 }
 
