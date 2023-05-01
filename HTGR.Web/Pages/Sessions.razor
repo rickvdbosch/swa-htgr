@@ -1,0 +1,61 @@
+﻿@page "/sessions"
+@using HTGR.Models
+@inject HttpClient Http
+
+<PageTitle>Sessions</PageTitle>
+
+<h1>Sessoions</h1>
+
+@if (sessions == null)
+{
+    if (message != null)
+    {
+        <h2>@message</h2>
+    }
+    else
+    {
+        <p><em>Loading...</em></p>
+    }
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>Day</th>
+            <th>Title</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Room</th>
+            <th>Details</th>
+        </tr>
+        @foreach (var session in sessions)
+        {
+            <tr>
+                <td>@session.Day</td>
+                <td>@session.Session</td>
+                <td>@session.Start</td>
+                <td>@session.End</td>
+                <td>@session.Room</td>
+                <td><a href="/sessions/@session.Day/@session.Session">Details</a></td>
+            </tr>
+        }
+    </table>
+}
+
+@code {
+    private SessionModel[]? sessions;
+    private string? message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        message = null;
+        try
+        {
+            sessions = await Http.GetFromJsonAsync<SessionModel[]>("/api/sessions");
+        }
+        catch 
+        {
+            message = "Something went wrong trying to get our sessions. Please try again.";
+        }
+    }
+}
