@@ -4,7 +4,7 @@
 
 <PageTitle>Sessions</PageTitle>
 
-<h1>Sessoions</h1>
+<h1>Sessions</h1>
 
 @if (sessions == null)
 {
@@ -19,7 +19,7 @@
 }
 else
 {
-    <table class="table">
+    <table class="table table-dark">
         <tr>
             <th>Day</th>
             <th>Title</th>
@@ -36,7 +36,7 @@ else
                 <td>@session.Start</td>
                 <td>@session.End</td>
                 <td>@session.Room</td>
-                <td><a href="/sessions/@session.Day/@session.Session">Details</a></td>
+                <td><a href="/sessiondetails/@(System.Web.HttpUtility.UrlEncode(session.Day))/@(System.Web.HttpUtility.UrlEncode(session.Session))">Details</a></td>
             </tr>
         }
     </table>
