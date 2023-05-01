@@ -18,15 +18,15 @@ namespace HTGR.Functions.Entities
         [IgnoreDataMember]
         public string Day
         {
-            get => PartitionKey;
-            set => PartitionKey = value;
+            get => PartitionKey.Replace('_', ' ');
+            set => PartitionKey = value.Replace(' ', '_');
         }
 
         [IgnoreDataMember]
         public string Session
         {
-            get => RowKey;
-            set => RowKey = value;
+            get => RowKey.Replace('_', ' ');
+            set => RowKey = value.Replace(' ', '_');
         }
         public string Start { get; set; }
         public string End { get; set; }
