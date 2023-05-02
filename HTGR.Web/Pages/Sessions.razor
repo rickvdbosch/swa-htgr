@@ -36,7 +36,7 @@ else
                 <td>@session.Start</td>
                 <td>@session.End</td>
                 <td>@session.Room</td>
-                <td><a href="/sessiondetails/@session.Day/@session.Session">Details</a></td>
+                <td><a href="/sessiondetails/@(session.Day).Replace(' ', '_')/@(session.Session).Replace(' ', '_')">Details</a></td>
             </tr>
         }
     </table>
