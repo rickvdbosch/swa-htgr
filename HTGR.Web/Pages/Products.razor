@@ -50,7 +50,7 @@ else
         message = null;
         try
         {
-            products = await Http.GetFromJsonAsync<ProductModel[]>($"/data-api/rest/Customer");
+            products = await Http.GetFromJsonAsync<ProductModel[]>($"/data-api/rest/Product");
         }
         catch
         {
