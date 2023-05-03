@@ -9,7 +9,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
 
-app.MapGet("/sessions", () =>
+app.MapGet("/api/sessions", () =>
 {
     return JsonSerializer.Deserialize<SessionModel[]>(File.ReadAllText($"{Environment.CurrentDirectory}/Data/daythree.json"));
 });
