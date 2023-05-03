@@ -3,7 +3,7 @@
 
 <h3>Products</h3>
 
-@if (products == null)
+@if (productResult == null)
 {
     if (message != null)
     {
@@ -25,7 +25,7 @@ else
             <th>Weight</th>
             <th>List price</th>
         </tr>
-        @foreach (var product in products)
+        @foreach (var product in productResult.value)
         {
             <tr>
                 <td>@product.Name</td>
@@ -42,7 +42,7 @@ else
 
 
 @code {
-    private ProductModel[]? products;
+    private ProductResult? productResult;
     private string? message;
 
     protected override async Task OnInitializedAsync()
@@ -50,7 +50,7 @@ else
         message = null;
         try
         {
-            products = await Http.GetFromJsonAsync<ProductModel[]>($"/data-api/rest/Product");
+            productResult = await Http.GetFromJsonAsync<ProductResult>($"/data-api/rest/Product");
         }
         catch
         {

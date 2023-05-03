@@ -1,5 +1,11 @@
 ﻿namespace HTGR.Web.Models
 {
+    public class ProductResult
+    {
+        public ProductModel[] value { get; set; }
+        public string nextLink { get; set; }
+    }
+
     public class ProductModel
     {
         public int ProductID { get; set; }
